@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>手写MVVM实现原理</title>
+</head>
+<body>
+	<div id="app">
+		<div>hello</div>
+		<ul>
+			<li>apple</li>
+			<li>banner</li>
+		</ul>
+		<input type="text" v-model="message">
+		<p>{{message}}</p>
+	</div>
+
+	<!-- <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script> -->
+	<script type="text/javascript" src="watcher.js"></script>
+	<script type="text/javascript" src="observer.js"></script>
+	<script type="text/javascript" src="compile.js"></script>
+	<script type="text/javascript" src="MVVM.js"></script>
+	<script type="text/javascript">
+		// vue中实现双向绑定：
+		// 1、模版的编译；
+		// 2、数据劫持，观察数据变化（Object.defineProperty get和set）
+		// 3、Watcher
+		let vm = new MVVM({
+			el: '#app',
+			data: {
+				message: 'hello world',
+				name: 'zhangsan',
+				role: {
+					name: 'kkk',
+				}
+			}
+		})
+	</script>
+</body>
+</html>
